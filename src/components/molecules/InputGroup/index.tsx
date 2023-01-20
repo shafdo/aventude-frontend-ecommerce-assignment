@@ -14,7 +14,7 @@ const GroupInput = (props: Props) => {
         <InputGroup.Text>
           <Icon src={props.iconSrc} className="icon-xs"></Icon>
         </InputGroup.Text>
-        <Input type="text" size="lg" placeholder="Search" />
+        <Input type="text" size="lg" className="no-left-border" placeholder="Search" />
       </InputGroup>
     </>
   );

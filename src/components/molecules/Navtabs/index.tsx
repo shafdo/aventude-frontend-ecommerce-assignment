@@ -10,8 +10,8 @@ const Navtabs = () => {
         <Heading4 className="text-center px-1">Categories</Heading4>
         <Icon src={ArrowDown} className="icon-xs"></Icon>
       </div>
-      <Heading4 className="px-4 py-2">Contact</Heading4>
-      <Heading4 className="px-4 py-2">About</Heading4>
+      <Heading4 className="px-4 py-2">Register</Heading4>
+      <Heading4 className="px-4 py-2">Login</Heading4>
     </div>
   );
 };

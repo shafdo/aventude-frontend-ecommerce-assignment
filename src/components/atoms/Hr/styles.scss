@@ -1,5 +1,7 @@
 hr {
-  border-top: 2px solid #fff;
+  .light {
+    border-top: 2px solid #fff !important;
+  }
   .dark {
     border-top: 2px solid #333 !important;
   }

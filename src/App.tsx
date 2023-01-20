@@ -1,11 +1,10 @@
 import './styles/index.scss';
-import Navbar from './components/organisms/Navbar';
-import Footer from './components/organisms/Footer';
+import RegisterPage from './components/pages/Register';
 
 function App() {
   return (
     <div className="App">
-      <Navbar></Navbar>
+      <RegisterPage></RegisterPage>
     </div>
   );
 }
