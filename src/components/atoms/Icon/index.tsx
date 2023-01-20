@@ -7,7 +7,7 @@ interface Props {
 }
 
 const defautProps = {
-  className: 'icon-md'
+  className: 'icon-md icon-light'
 };
 
 const Icon = (propsIn: Props) => {

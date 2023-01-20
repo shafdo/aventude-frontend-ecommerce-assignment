@@ -1,5 +1,6 @@
 import './styles/index.scss';
-import Navbar from './components/organisms/Navbar/Navbar';
+import Navbar from './components/organisms/Navbar';
+import Footer from './components/organisms/Footer';
 
 function App() {
   return (

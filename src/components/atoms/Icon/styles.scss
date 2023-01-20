@@ -2,6 +2,14 @@
   width: 25px;
 }
 
+.icon-sm {
+  width: 50px;
+}
+
 .icon-md {
   width: 75px;
+}
+
+.icon-light {
+  filter: invert(100%) sepia(0%) saturate(7492%) hue-rotate(4deg) brightness(101%) contrast(103%);
 }
