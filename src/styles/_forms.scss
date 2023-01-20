@@ -1,0 +1,13 @@
+.input-group-text {
+  background-color: transparent;
+  border-color: $primaryColor;
+}
+
+.form-control {
+  border-left: none;
+  border-color: $primaryColor;
+
+  &:focus {
+    border-color: $primaryColor;
+  }
+}

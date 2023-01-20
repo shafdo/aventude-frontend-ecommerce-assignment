@@ -1,0 +1,11 @@
+
+Version 0.0.3
+    - Navbar component added.
+
+Version 0.0.2
+    - Changelog added.
+    - Antd CSS UI framework added.
+
+Version 0.0.1
+    - Setup initial project.
+    - Configured ESLint and prettier.
