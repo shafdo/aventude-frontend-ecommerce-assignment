@@ -1,10 +1,10 @@
-import ProductPage from './components/pages/Product';
+import HomePage from './components/pages/Home';
 import './styles/index.scss';
 
 function App() {
   return (
     <div className="App">
-      <ProductPage></ProductPage>
+      <HomePage></HomePage>
     </div>
   );
 }

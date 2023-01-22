@@ -1,4 +1,7 @@
 
+Version 0.0.8
+    - Homepage / Product catalog page added.
+
 Version 0.0.7
     - Product page added.
 
