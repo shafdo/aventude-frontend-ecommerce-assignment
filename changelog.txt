@@ -1,4 +1,7 @@
 
+Version 0.0.9
+    - Card category and parameters added.
+
 Version 0.0.8
     - Homepage / Product catalog page added.
 

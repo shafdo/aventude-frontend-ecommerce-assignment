@@ -8,6 +8,10 @@ import Icon from '../../atoms/Icon';
 
 interface Props extends ImageProps {
   src: string;
+  productName: string;
+  productCategory: string;
+  productPrice: number;
+  productStock: number;
 }
 
 const ProductCard = (props: Props) => {
@@ -19,6 +23,7 @@ const ProductCard = (props: Props) => {
         </div>
         <div className="card-body">
           <Heading4 className="mb-3 text-capitalize">product Title</Heading4>
+          <Paragraph className="category">Cloths</Paragraph>
           <div className="d-flex justify-content-between align-items-center">
             <Paragraph className="price mb-0">$100</Paragraph>
 
