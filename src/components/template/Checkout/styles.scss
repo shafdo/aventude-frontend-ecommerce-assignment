@@ -1,0 +1,26 @@
+#customer-email {
+  .form-control {
+    cursor: not-allowed;
+  }
+}
+
+// LG Screen and up
+@media (min-width: 993px) {
+  #content {
+    .payment-details {
+      padding-left: 3rem;
+    }
+    .order-details {
+      padding-right: 3rem;
+    }
+  }
+}
+
+// LG Screen and down
+@media (max-width: 992px) {
+  #content {
+    .payment-details {
+      margin-top: 3rem;
+    }
+  }
+}

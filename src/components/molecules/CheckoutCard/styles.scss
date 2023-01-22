@@ -1,0 +1,16 @@
+#checkout-card {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-radius: 20px;
+
+  .thumb {
+    img {
+      border-radius: 20px;
+    }
+  }
+
+  .info {
+    padding-left: 1rem;
+  }
+}

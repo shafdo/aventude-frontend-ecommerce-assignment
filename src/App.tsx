@@ -1,10 +1,10 @@
-import HomePage from './components/pages/Home';
+import CheckoutPage from './components/pages/Checkout';
 import './styles/index.scss';
 
 function App() {
   return (
     <div className="App">
-      <HomePage></HomePage>
+      <CheckoutPage></CheckoutPage>
     </div>
   );
 }
