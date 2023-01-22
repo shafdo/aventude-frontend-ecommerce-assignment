@@ -1,4 +1,8 @@
 
+Version 0.0.6
+    - Login page added.
+    - Registration page updates.
+
 Version 0.0.5
     - Registration page added.
 

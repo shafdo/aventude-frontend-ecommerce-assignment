@@ -3,7 +3,9 @@
 @import './forms';
 @import './navbar';
 @import './footer';
+@import './button';
 
-p {
+p,
+label {
   font-size: 18px;
 }
