@@ -1,10 +1,10 @@
+import ProductPage from './components/pages/Product';
 import './styles/index.scss';
-import RegisterPage from './components/pages/Register';
 
 function App() {
   return (
     <div className="App">
-      <RegisterPage></RegisterPage>
+      <ProductPage></ProductPage>
     </div>
   );
 }

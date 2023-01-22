@@ -1,4 +1,7 @@
 
+Version 0.0.7
+    - Product page added.
+
 Version 0.0.6
     - Login page added.
     - Registration page updates.
