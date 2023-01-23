@@ -1,4 +1,7 @@
 
+Version 0.0.13
+    - Added back button to register and login pages.
+
 Version 0.0.12
     - React Router added.
     - Removed header from register and login page.

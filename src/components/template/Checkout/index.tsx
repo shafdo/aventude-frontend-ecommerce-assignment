@@ -1,5 +1,5 @@
 import { Container, Row, Col } from 'react-bootstrap';
-import DefaultButton from '../../atoms/Button';
+import { DefaultButton } from '../../atoms/Button';
 import { Heading2, Heading4 } from '../../atoms/Heading';
 import Hr from '../../atoms/Hr';
 import { InputWithLabel } from '../../atoms/Input';

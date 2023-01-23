@@ -4,10 +4,17 @@
   color: $secondaryColor;
   transition: 0.5s;
 
+  .icon {
+  }
+
   &:hover {
     background-color: $primaryColor;
     color: $white;
     border: 2px solid $primaryColor;
+
+    .icon {
+      filter: invert(100%) sepia(0%) saturate(7492%) hue-rotate(4deg) brightness(101%) contrast(103%);
+    }
   }
 }
 

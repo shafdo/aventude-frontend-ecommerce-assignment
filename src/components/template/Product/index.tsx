@@ -1,5 +1,5 @@
 import { Container, Row, Col, Image } from 'react-bootstrap';
-import DefaultButton from '../../atoms/Button';
+import { DefaultButton } from '../../atoms/Button';
 import { Heading1 } from '../../atoms/Heading';
 import Paragraph from '../../atoms/Paragraph';
 import Footer from '../../organisms/Footer';

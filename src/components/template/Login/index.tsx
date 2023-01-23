@@ -1,8 +1,10 @@
 import { Container, Row, Col } from 'react-bootstrap';
-import DefaultButton from '../../atoms/Button';
+import { Link } from 'react-router-dom';
+import { DefaultButton, DefaultButtonWithIcon } from '../../atoms/Button';
 import { InputWithLabel } from '../../atoms/Input';
 import Paragraph from '../../atoms/Paragraph';
 import Footer from '../../organisms/Footer';
+import ArrowBack from './arrow-left.svg';
 import './styles.scss';
 
 const LoginTemplate = () => {
@@ -12,6 +14,14 @@ const LoginTemplate = () => {
         <Row className="w-100 h-100 m-0">
           <Col lg={6} className="px-5 d-flex align-items-center">
             <div className="my-5 w-100">
+              <div className="d-block my-4">
+                <Link to="/">
+                  <DefaultButtonWithIcon iconSrc={ArrowBack} size="sm" className="d-block primary-outline-btn mx-auto w-25 fw-bold">
+                    Go back
+                  </DefaultButtonWithIcon>
+                </Link>
+              </div>
+
               <div className="d-block">
                 <Paragraph className="display-3 text-center">Login</Paragraph>
                 <Paragraph className="text-center">Welcome back. Please enter your details</Paragraph>
