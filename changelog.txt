@@ -1,4 +1,8 @@
 
+Version 0.0.12
+    - React Router added.
+    - Removed header from register and login page.
+
 Version 0.0.11
     - Unused variables are removed.
 

@@ -3,13 +3,11 @@ import DefaultButton from '../../atoms/Button';
 import { InputWithLabel } from '../../atoms/Input';
 import Paragraph from '../../atoms/Paragraph';
 import Footer from '../../organisms/Footer';
-import Navbar from '../../organisms/Navbar';
 import './styles.scss';
 
 const LoginTemplate = () => {
   return (
     <>
-      <Navbar></Navbar>
       <Container fluid={true} id="content" className="p-0">
         <Row className="w-100 h-100 m-0">
           <Col lg={6} className="px-5 d-flex align-items-center">

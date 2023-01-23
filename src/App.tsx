@@ -1,18 +1,23 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import CheckoutPage from './components/pages/Checkout';
+import Error404Page from './components/pages/Error404';
 import HomePage from './components/pages/Home';
-// import RegisterPage from './components/pages/Register';
-// import LoginPage from './components/pages/Login';
-// import ProductPage from './components/pages/Product';
-// import CheckoutPage from './components/pages/Checkout';
+import LoginPage from './components/pages/Login';
+import RegisterPage from './components/pages/Register';
 import './styles/index.scss';
 
 function App() {
   return (
     <div className="App">
-      <HomePage></HomePage>
-      {/* <RegisterPage></RegisterPage> */}
-      {/* <LoginPage></LoginPage> */}
-      {/* <ProductPage></ProductPage> */}
-      {/* <CheckoutPage></CheckoutPage> */}
+      <Router>
+        <Routes>
+          <Route path="/" element={<HomePage />}></Route>
+          <Route path="/register" element={<RegisterPage />}></Route>
+          <Route path="/login" element={<LoginPage />}></Route>
+          <Route path="/checkout" element={<CheckoutPage />}></Route>
+          <Route path="*" element={<Error404Page />}></Route>
+        </Routes>
+      </Router>
     </div>
   );
 }
