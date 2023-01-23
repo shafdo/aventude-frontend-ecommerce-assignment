@@ -1,6 +1,5 @@
 import { Container, Row, Col } from 'react-bootstrap';
 import { Heading1 } from '../../atoms/Heading';
-import Paragraph from '../../atoms/Paragraph';
 import ProductCard from '../../molecules/ProductCard';
 import Footer from '../../organisms/Footer';
 import Navbar from '../../organisms/Navbar';

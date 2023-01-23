@@ -1,4 +1,3 @@
-import { Heading5 } from '../../atoms/Heading';
 import Icon from '../../atoms/Icon';
 import Paragraph from '../../atoms/Paragraph';
 import './styles.scss';

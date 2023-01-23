@@ -1,4 +1,7 @@
 
+Version 0.0.11
+    - Unused variables are removed.
+
 Version 0.0.10
     - Add to cart page added.
 
