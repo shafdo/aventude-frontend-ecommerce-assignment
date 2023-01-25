@@ -1,4 +1,7 @@
 
+Version 0.0.14
+    - Login page integrated with backend.
+
 Version 0.0.13
     - Added back button to register and login pages.
 

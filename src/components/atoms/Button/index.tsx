@@ -3,6 +3,7 @@ import Icon from '../Icon';
 
 interface Props extends ButtonProps {
   iconSrc: string;
+  value?: string;
 }
 
 export const DefaultButton = (props: ButtonProps) => {
@@ -11,6 +12,14 @@ export const DefaultButton = (props: ButtonProps) => {
       <Button variant={props.variant} className={props.className} size={props.size} onClick={props.onClick}>
         {props.children}
       </Button>
+    </>
+  );
+};
+
+export const SubmitButton = (props: ButtonProps) => {
+  return (
+    <>
+      <input type="submit" className={props.className} value={props.value} />
     </>
   );
 };
