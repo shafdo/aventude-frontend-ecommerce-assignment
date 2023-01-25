@@ -1,4 +1,8 @@
 
+Version 0.0.15
+    - Register page integrated with backend.
+    - Login page sweet alert updated.
+
 Version 0.0.14
     - Login page integrated with backend.
 

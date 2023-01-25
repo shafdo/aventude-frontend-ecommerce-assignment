@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { DefaultButtonWithIcon, SubmitButton } from '../../atoms/Button';
@@ -12,6 +12,7 @@ import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
+import { showBasicSuccessAlert, showBasicErrorAlert } from '../../../utils/swalAlerts';
 import './styles.scss';
 
 const MySwal = withReactContent(Swal);
@@ -29,24 +30,17 @@ const LoginTemplate = () => {
   const onSubmit = async (formData: object) => {
     const { email, password }: any = formData;
 
-    if (!email || !password) return 0;
+    if (!email || !password) return await showBasicErrorAlert({ title: 'Error', msg: 'Please fill in all the inputs.' });
 
     const res: any = await LoginApi(email, password);
 
-    console.log(res.data);
-
-    MySwal.fire({
-      icon: res.status === 200 ? 'success' : 'error',
-      title: res.status === 200 ? 'Logged In Successfully' : 'Oops.',
-      text: res.status === 200 ? res.data.msg : res.data,
-      showConfirmButton: false,
-      timer: 3500
-    }).then(() => {
-      if (res.status === 200) {
+    if (res.status === 200) {
+      return await showBasicSuccessAlert({ title: 'Logged In Successfully', msg: res.data.msg }).then(() => {
         Cookies.set('auth', res.data.token);
-        return navigate('/');
-      }
-    });
+        return navigate('/login');
+      });
+    }
+    return await showBasicErrorAlert({ title: 'Oops.', msg: res.data });
   };
 
   return (
@@ -75,7 +69,7 @@ const LoginTemplate = () => {
                     <Form.Control size="lg" type="email" placeholder="example@email.com" {...register('email')} />
                   </Form.Group>
 
-                  <Form.Group className="mb-4" id="email">
+                  <Form.Group className="mb-4" id="password">
                     <Form.Label>Password</Form.Label>
                     <Form.Control size="lg" type="password" placeholder="**********" {...register('password')} />
                   </Form.Group>
