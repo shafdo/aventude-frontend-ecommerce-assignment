@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { DefaultButtonWithIcon, SubmitButton } from '../../atoms/Button';
@@ -14,14 +14,17 @@ import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import { showBasicSuccessAlert, showBasicErrorAlert } from '../../../utils/swalAlerts';
 import './styles.scss';
+import { useDispatch } from 'react-redux';
+import { login } from '../../../store';
 
 const MySwal = withReactContent(Swal);
 
 const LoginTemplate = () => {
   let navigate = useNavigate();
 
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    console.log(Cookies.get('auth'));
     if (Cookies.get('auth') !== undefined) return navigate('/');
   });
 
@@ -36,6 +39,7 @@ const LoginTemplate = () => {
 
     if (res.status === 200) {
       return await showBasicSuccessAlert({ title: 'Logged In Successfully', msg: res.data.msg }).then(() => {
+        dispatch(login({ email }));
         Cookies.set('auth', res.data.token);
         return navigate('/login');
       });
