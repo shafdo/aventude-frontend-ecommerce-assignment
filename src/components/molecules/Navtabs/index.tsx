@@ -1,12 +1,10 @@
 import { Link } from 'react-router-dom';
 import { Heading4 } from '../../atoms/Heading';
-import ArrowDown from './arrrow-down.svg';
 import { useDispatch, useSelector } from 'react-redux';
-import Icon from '../../atoms/Icon';
 import { logout } from '../../../store';
 import { Dropdown } from 'react-bootstrap';
-import { Type } from 'typescript';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import Cookies from 'js-cookie';
 
 interface Props {
   categoryList: any;
@@ -14,13 +12,19 @@ interface Props {
 
 const Navtabs = (props: Props) => {
   const email = useSelector((state: any) => state.user.value.email);
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
 
   const categoryList = props.categoryList;
   const categoryCount = props.categoryList.length;
 
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    if (Cookies.get('auth') !== undefined) setIsUserLoggedIn(true);
+  });
+
   const logoutSession = () => {
+    Cookies.remove('auth');
     dispatch(logout());
   };
 
@@ -44,7 +48,7 @@ const Navtabs = (props: Props) => {
         </Dropdown>
       </div>
 
-      {email ? (
+      {isUserLoggedIn ? (
         <Link to="/profile">
           <Heading4 className="px-4 py-2">Profile</Heading4>
         </Link>
@@ -54,7 +58,7 @@ const Navtabs = (props: Props) => {
         </Link>
       )}
 
-      {email ? (
+      {isUserLoggedIn ? (
         <Link onClick={logoutSession} to="/login">
           <Heading4 className="px-4 py-2">Logout</Heading4>
         </Link>

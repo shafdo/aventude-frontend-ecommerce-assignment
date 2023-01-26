@@ -22,8 +22,6 @@ const Navbar = () => {
     fetchData().then((cats) => setCategories(cats));
   }, []);
 
-  console.log(categories);
-
   return (
     <div id="navbar">
       <StoreLogo className="logo-md d-block mx-auto"></StoreLogo>

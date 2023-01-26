@@ -1,4 +1,7 @@
 
+Version 0.0.18
+    - Cookie validations added to navbar.
+
 Version 0.0.17
     - Category loading added.
 

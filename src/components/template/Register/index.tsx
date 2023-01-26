@@ -20,15 +20,12 @@ const RegisterTemplate = () => {
   let navigate = useNavigate();
 
   useEffect(() => {
-    console.log(Cookies.get('auth'));
     if (Cookies.get('auth') !== undefined) return navigate('/');
   });
 
   const { register, handleSubmit } = useForm();
 
   const onSubmit = async (formData: object) => {
-    console.log(formData);
-
     const { email, password, cpassword }: any = formData;
 
     if (!email || !password || !cpassword) return await showBasicErrorAlert({ title: 'Error', msg: 'Please fill in all the inputs.' });
