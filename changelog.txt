@@ -1,4 +1,7 @@
 
+Version 0.0.17
+    - Category loading added.
+
 Version 0.0.16
     - Setup Redux.
     - Navbar dynamic buttons added.

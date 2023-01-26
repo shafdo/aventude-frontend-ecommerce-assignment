@@ -4,9 +4,19 @@ import ArrowDown from './arrrow-down.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import Icon from '../../atoms/Icon';
 import { logout } from '../../../store';
+import { Dropdown } from 'react-bootstrap';
+import { Type } from 'typescript';
+import { useState } from 'react';
 
-const Navtabs = () => {
+interface Props {
+  categoryList: any;
+}
+
+const Navtabs = (props: Props) => {
   const email = useSelector((state: any) => state.user.value.email);
+
+  const categoryList = props.categoryList;
+  const categoryCount = props.categoryList.length;
 
   const dispatch = useDispatch();
 
@@ -21,8 +31,17 @@ const Navtabs = () => {
       </Link>
 
       <div className="d-flex justify-content-center px-4 py-2">
-        <Heading4 className="text-center px-1">Categories</Heading4>
-        <Icon src={ArrowDown} className="icon-xs"></Icon>
+        <Dropdown>
+          <Dropdown.Toggle variant="none" id="category-dropdown">
+            <Heading4 className="text-center px-1">Categories</Heading4>
+          </Dropdown.Toggle>
+
+          <Dropdown.Menu>
+            {categoryList.slice(0, categoryCount).map((category: any) => {
+              return <Dropdown.Item href="#">{category}</Dropdown.Item>;
+            })}
+          </Dropdown.Menu>
+        </Dropdown>
       </div>
 
       {email ? (
