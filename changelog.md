@@ -1,4 +1,7 @@
 
+Version 0.0.22
+    - Removed unnecessary promises from axios api callers.
+
 Version 0.0.21
     - Link added to product catelog product card.
     - Product page updated. 

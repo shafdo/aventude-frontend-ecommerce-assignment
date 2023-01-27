@@ -25,9 +25,6 @@ export const RegisterApi = (email: userType, password: userType, confirmPassword
     confirmPassword
   };
 
-  return new Promise((resolve) => {
-    Axios.post(`${process.env.REACT_APP_API_ENDPOINT}/user/register`, postData, { withCredentials: true })
-      .then((res) => resolve(res))
-      .catch((error) => resolve(error.response));
-  });
+  const response = Axios.post(`${process.env.REACT_APP_API_ENDPOINT}/user/register`, postData, { withCredentials: true });
+  return response;
 };
