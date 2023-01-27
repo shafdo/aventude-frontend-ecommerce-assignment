@@ -1,10 +1,23 @@
+import { useEffect, useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
+import { GetProductsApi } from '../../../api/product.api';
 import { Heading1 } from '../../atoms/Heading';
 import ProductCard from '../../molecules/ProductCard';
 import Footer from '../../organisms/Footer';
 import Navbar from '../../organisms/Navbar';
 
 const HomeTemplate = () => {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const res: any = await GetProductsApi();
+      return res.data;
+    };
+
+    fetchData().then((prods) => setProducts(prods));
+  }, []);
+
   return (
     <>
       <Navbar></Navbar>
@@ -15,24 +28,13 @@ const HomeTemplate = () => {
           </Col>
         </Row>
         <Row>
-          <Col md={6} lg={6} xl={4}>
-            <ProductCard src="https://source.unsplash.com/random/?clothes&1" productName="Product Title" productCategory="Clothing" productPrice={100} productStock={20}></ProductCard>
-          </Col>
-          <Col md={6} lg={6} xl={4}>
-            <ProductCard src="https://source.unsplash.com/random/?clothes&2" productName="Product Title" productCategory="Clothing" productPrice={100} productStock={20}></ProductCard>
-          </Col>
-          <Col md={6} lg={6} xl={4}>
-            <ProductCard src="https://source.unsplash.com/random/?clothes&3" productName="Product Title" productCategory="Clothing" productPrice={100} productStock={20}></ProductCard>
-          </Col>
-          <Col md={6} lg={6} xl={4}>
-            <ProductCard src="https://source.unsplash.com/random/?clothes&4" productName="Product Title" productCategory="Clothing" productPrice={100} productStock={20}></ProductCard>
-          </Col>
-          <Col md={6} lg={6} xl={4}>
-            <ProductCard src="https://source.unsplash.com/random/?clothes&5" productName="Product Title" productCategory="Clothing" productPrice={100} productStock={20}></ProductCard>
-          </Col>
-          <Col md={6} lg={6} xl={4}>
-            <ProductCard src="https://source.unsplash.com/random/?clothes&6" productName="Product Title" productCategory="Clothing" productPrice={100} productStock={20}></ProductCard>
-          </Col>
+          {products.slice(0, products.length).map((product: any) => {
+            return (
+              <Col md={6} lg={6} xl={4}>
+                <ProductCard src="https://source.unsplash.com/random/?friuts&2" productName={product.productName} productCategory="Clothing" productPrice={100} productStock={product.productStock}></ProductCard>
+              </Col>
+            );
+          })}
         </Row>
       </Container>
       <Footer></Footer>

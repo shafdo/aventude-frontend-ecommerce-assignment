@@ -42,7 +42,11 @@ const Navtabs = (props: Props) => {
 
           <Dropdown.Menu>
             {categoryList.slice(0, categoryCount).map((category: any) => {
-              return <Dropdown.Item href="#">{category}</Dropdown.Item>;
+              return (
+                <Dropdown.Item as={Link} to={`/search/category/${category.productCategoryId}`}>
+                  {category.productCategoryName}
+                </Dropdown.Item>
+              );
             })}
           </Dropdown.Menu>
         </Dropdown>

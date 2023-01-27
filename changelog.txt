@@ -1,4 +1,11 @@
 
+Version 0.0.20
+    - Category id search path in navbar.
+    - Product page added.
+
+Version 0.0.19
+    - Product catalog page backend integration.
+
 Version 0.0.18
     - Cookie validations added to navbar.
 

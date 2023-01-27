@@ -4,9 +4,27 @@ import { Heading1 } from '../../atoms/Heading';
 import Paragraph from '../../atoms/Paragraph';
 import Footer from '../../organisms/Footer';
 import Navbar from '../../organisms/Navbar';
+import { useParams } from 'react-router';
+import { useEffect, useState } from 'react';
 import './styles.scss';
+import { GetProductApi } from '../../../api/product.api';
+import { showBasicErrorAlert } from '../../../utils/swalAlerts';
 
 const ProductTemplate = () => {
+  const { id }: any = useParams<string>();
+  const [product, setProduct] = useState<any>();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const res: any = await GetProductApi(id);
+      console.log(res.data);
+
+      return res.data;
+    };
+
+    fetchData().then((prod) => setProduct(prod));
+  }, []);
+
   return (
     <>
       <Navbar></Navbar>
@@ -19,19 +37,18 @@ const ProductTemplate = () => {
 
           <Col lg={6} className="product-details">
             <div className="d-block my-4">
-              <Heading1 className="text-capitalize">Test product.</Heading1>
+              <Heading1 className="text-capitalize">{product.productName}</Heading1>
             </div>
 
             <div className="d-flex justify-content-between align-items-center">
               <Paragraph className="fs-3 fst-italic">$100</Paragraph>
               <DefaultButton size="sm" className="fs-6 primary-btn fst-italic pe-none">
-                20 In Stock
+                {product.productStock} In Stock
               </DefaultButton>
             </div>
 
             <div className="d-block">
-              <Paragraph className="my-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet iure reiciendis fugiat quas repudiandae? Voluptatem iste placeat esse! Voluptatum aliquam praesentium, rem recusandae minus quasi error doloremque tempore ut? Dolor.</Paragraph>
-              <Paragraph className="my-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet iure reiciendis fugiat quas repudiandae? Voluptatem iste placeat esse! Voluptatum aliquam praesentium, rem recusandae minus quasi error doloremque tempore ut? Dolor.</Paragraph>
+              <Paragraph className="my-4">{product.productDesc}</Paragraph>
             </div>
 
             <div className="d-block my-5">

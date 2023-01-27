@@ -14,7 +14,10 @@ const Navbar = () => {
       const res: any = await GetCategoriesApi();
       let data: any = [];
       res.data.forEach((e: any) => {
-        data.push(e.productCategoryName);
+        data.push({
+          productCategoryName: e.productCategoryName,
+          productCategoryId: e.productCategoryId
+        });
       });
       return data;
     };
