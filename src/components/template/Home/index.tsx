@@ -31,7 +31,7 @@ const HomeTemplate = () => {
           {products.slice(0, products.length).map((product: any) => {
             return (
               <Col md={6} lg={6} xl={4}>
-                <ProductCard src="https://source.unsplash.com/random/?friuts&2" productName={product.productName} productCategory="Clothing" productPrice={100} productStock={product.productStock}></ProductCard>
+                <ProductCard src="https://source.unsplash.com/random/?friuts&2" productId={product.productId} productName={product.productName} productCategory="Clothing" productPrice={100} productStock={product.productStock}></ProductCard>
               </Col>
             );
           })}

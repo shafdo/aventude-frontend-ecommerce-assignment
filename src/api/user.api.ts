@@ -8,17 +8,14 @@ interface userType {
   confirmPassword: string;
 }
 
-export const LoginApi = async (email: userType, password: userType) => {
+export const LoginApi = (email: userType, password: userType) => {
   const postData = {
     email,
     password
   };
 
-  return new Promise((resolve) => {
-    Axios.post(`${process.env.REACT_APP_API_ENDPOINT}/user/login`, postData, { withCredentials: true })
-      .then((res) => resolve(res))
-      .catch((error) => resolve(error.response));
-  });
+  const response = Axios.post(`${process.env.REACT_APP_API_ENDPOINT}/user/login`, postData, { withCredentials: true });
+  return response;
 };
 
 export const RegisterApi = (email: userType, password: userType, confirmPassword: userType) => {

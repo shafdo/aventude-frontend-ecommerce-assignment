@@ -8,13 +8,9 @@ import ArrowBack from './arrow-left.svg';
 import { Form } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { RegisterApi } from '../../../api/user.api';
-import Swal from 'sweetalert2';
-import withReactContent from 'sweetalert2-react-content';
 import Cookies from 'js-cookie';
 import { showBasicSuccessAlert, showBasicErrorAlert } from '../../../utils/swalAlerts';
 import './styles.scss';
-
-const MySwal = withReactContent(Swal);
 
 const RegisterTemplate = () => {
   let navigate = useNavigate();

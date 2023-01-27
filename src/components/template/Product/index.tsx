@@ -8,11 +8,10 @@ import { useParams } from 'react-router';
 import { useEffect, useState } from 'react';
 import './styles.scss';
 import { GetProductApi } from '../../../api/product.api';
-import { showBasicErrorAlert } from '../../../utils/swalAlerts';
 
 const ProductTemplate = () => {
   const { id }: any = useParams<string>();
-  const [product, setProduct] = useState<any>();
+  const [product, setProduct] = useState<any>({});
 
   useEffect(() => {
     const fetchData = async () => {

@@ -1,4 +1,8 @@
 
+Version 0.0.21
+    - Link added to product catelog product card.
+    - Product page updated. 
+
 Version 0.0.20
     - Category id search path in navbar.
     - Product page added.

@@ -5,9 +5,11 @@ import './styles.scss';
 import StockIcon from './stock.svg';
 import SearchIcon from './search.svg';
 import Icon from '../../atoms/Icon';
+import { Link } from 'react-router-dom';
 
 interface Props extends ImageProps {
   src: string;
+  productId: string;
   productName: string;
   productCategory: string;
   productPrice: number;
@@ -33,7 +35,9 @@ const ProductCard = (props: Props) => {
             </div>
 
             <div className="search-icon-wrapper">
-              <Icon src={SearchIcon} className="search-icon icon-light icon-2xs"></Icon>
+              <Link to={`/product/${props.productId}`}>
+                <Icon src={SearchIcon} className="search-icon icon-light icon-2xs"></Icon>
+              </Link>
             </div>
           </div>
         </div>
