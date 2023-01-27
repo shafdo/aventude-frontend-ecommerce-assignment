@@ -1,22 +1,31 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { SearchCategoryApi, SearchProductApi } from '../../../api/search.api';
 import ProductsContainer from '../../organisms/Products';
+import './styles.scss';
 
 export const SearchCategoryTemplate = () => {
   const { id }: any = useParams<string>();
-  const [categories, setProducts] = useState([]);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [categories, setCategories] = useState([]);
+  let navigate = useNavigate();
+
+  const catName = searchParams.get('catName');
+
+  const pageTitle = `Category Search ${catName}`;
 
   useEffect(() => {
+    if (catName === undefined) return navigate('/');
+
     const fetchData = async () => {
       const res: any = await SearchCategoryApi(id);
       return res.data;
     };
 
-    fetchData().then((cats) => setProducts(cats));
-  }, []);
+    fetchData().then((cats) => setCategories(cats));
+  }, [catName]);
 
-  return <ProductsContainer title="Category Search" itterList={categories}></ProductsContainer>;
+  return <ProductsContainer title={pageTitle} itterList={categories}></ProductsContainer>;
 };
 
 export const SearchProductNameTemplate = () => {
@@ -31,8 +40,6 @@ export const SearchProductNameTemplate = () => {
 
     fetchData().then((prods) => setProducts(prods));
   }, []);
-
-  console.log(products);
 
   return <ProductsContainer title="Product Search" itterList={products}></ProductsContainer>;
 };

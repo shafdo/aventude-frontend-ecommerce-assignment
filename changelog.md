@@ -1,4 +1,7 @@
 
+Version 0.0.23
+    - Navbar category rendering and naviation completely implemented. 
+
 Version 0.0.22
     - Removed unnecessary promises from axios api callers.
 
