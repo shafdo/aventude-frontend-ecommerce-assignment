@@ -14,7 +14,7 @@ const Icon = (propsIn: Props) => {
   const props = { ...defautProps, ...propsIn };
   return (
     <>
-      <img className={props.className} src={props.src} alt={props.alt} />
+      <img className={'icon ' + props.className} src={props.src} alt={props.alt} />
     </>
   );
 };

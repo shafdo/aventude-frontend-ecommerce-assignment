@@ -7,10 +7,12 @@ interface Props extends FormProps {
   label?: string;
   isDisabled?: boolean;
   value?: string;
+  name?: string;
 }
 
 const defautProps = {
-  isDisabled: false
+  isDisabled: false,
+  name: 'default'
 };
 
 export const Input = (props: Props) => {

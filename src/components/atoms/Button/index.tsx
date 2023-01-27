@@ -1,6 +1,12 @@
 import { Button, ButtonProps } from 'react-bootstrap';
+import Icon from '../Icon';
 
-const DefaultButton = (props: ButtonProps) => {
+interface Props extends ButtonProps {
+  iconSrc: string;
+  value?: string;
+}
+
+export const DefaultButton = (props: ButtonProps) => {
   return (
     <>
       <Button variant={props.variant} className={props.className} size={props.size} onClick={props.onClick}>
@@ -10,4 +16,21 @@ const DefaultButton = (props: ButtonProps) => {
   );
 };
 
-export default DefaultButton;
+export const SubmitButton = (props: ButtonProps) => {
+  return (
+    <>
+      <input type="submit" className={props.className} value={props.value} />
+    </>
+  );
+};
+
+export const DefaultButtonWithIcon = (props: Props) => {
+  return (
+    <>
+      <Button variant={props.variant} className={props.className} size={props.size} onClick={props.onClick}>
+        <Icon src={props.iconSrc} className="icon-xxs mx-2"></Icon>
+        {props.children}
+      </Button>
+    </>
+  );
+};

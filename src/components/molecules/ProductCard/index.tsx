@@ -5,9 +5,11 @@ import './styles.scss';
 import StockIcon from './stock.svg';
 import SearchIcon from './search.svg';
 import Icon from '../../atoms/Icon';
+import { Link } from 'react-router-dom';
 
 interface Props extends ImageProps {
   src: string;
+  productId: string;
   productName: string;
   productCategory: string;
   productPrice: number;
@@ -22,18 +24,20 @@ const ProductCard = (props: Props) => {
           <Image src={props.src} fluid={true}></Image>
         </div>
         <div className="card-body">
-          <Heading4 className="mb-3 text-capitalize">product Title</Heading4>
-          <Paragraph className="category">Cloths</Paragraph>
+          <Heading4 className="mb-3 text-capitalize">{props.productName}</Heading4>
+          <Paragraph className="category">{props.productCategory}</Paragraph>
           <div className="d-flex justify-content-between align-items-center">
-            <Paragraph className="price mb-0">$100</Paragraph>
+            <Paragraph className="price mb-0">{'$' + props.productPrice.toString()}</Paragraph>
 
             <div className="d-flex justify-content-center align-items-center">
               <Icon src={StockIcon} className="icon-xs"></Icon>
-              <Paragraph className="stock mb-0 mx-2">20</Paragraph>
+              <Paragraph className="stock mb-0 mx-2">{props.productStock.toString()}</Paragraph>
             </div>
 
             <div className="search-icon-wrapper">
-              <Icon src={SearchIcon} className="search-icon icon-light icon-2xs"></Icon>
+              <Link to={`/product/${props.productId}`}>
+                <Icon src={SearchIcon} className="search-icon icon-light icon-2xs"></Icon>
+              </Link>
             </div>
           </div>
         </div>
