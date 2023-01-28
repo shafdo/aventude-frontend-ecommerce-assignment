@@ -1,4 +1,7 @@
 
+Version 0.0.25
+    - Product search added.
+
 Version 0.0.24
     - Docker file added.
     - Added localstorage persistant data store. 
