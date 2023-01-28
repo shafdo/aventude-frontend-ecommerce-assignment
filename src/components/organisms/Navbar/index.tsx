@@ -1,15 +1,18 @@
 import { useEffect, useState } from 'react';
 import { InputGroup } from 'react-bootstrap';
+import { useDispatch } from 'react-redux';
 import { GetCategoriesApi } from '../../../api/category.api';
+import { saveUserData } from '../../../store';
 import Icon from '../../atoms/Icon';
 import { Input } from '../../atoms/Input';
 import StoreLogo from '../../atoms/Logo';
-import GroupInput from '../../molecules/InputGroup';
 import Navtabs from '../../molecules/Navtabs';
 import searchIcon from './search.svg';
+import _ from 'lodash';
 import './styles.scss';
 
 const Navbar = () => {
+  const dispatch = useDispatch();
   const [categories, setCategories] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
 
@@ -27,6 +30,12 @@ const Navbar = () => {
     };
 
     fetchData().then((cats) => setCategories(cats));
+
+    // Set redux state variables from localstorage
+    const savedSettings = JSON.parse(localStorage.getItem('settings') || '{}');
+    if (_.isEmpty(savedSettings)) return;
+
+    dispatch(saveUserData(savedSettings));
   }, []);
 
   const search = () => {

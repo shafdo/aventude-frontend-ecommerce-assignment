@@ -7,4 +7,4 @@ export const store = configureStore({
   }
 });
 
-export const { login, logout } = userSlice.actions;
+export const { saveUserData, eraseUserData } = userSlice.actions;

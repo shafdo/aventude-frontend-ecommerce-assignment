@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Heading4 } from '../../atoms/Heading';
 import { useDispatch, useSelector } from 'react-redux';
-import { logout } from '../../../store';
+import { eraseUserData } from '../../../store';
 import { Dropdown } from 'react-bootstrap';
 import { useEffect, useState } from 'react';
 import Cookies from 'js-cookie';
@@ -25,7 +25,7 @@ const Navtabs = (props: Props) => {
 
   const logoutSession = () => {
     Cookies.remove('auth');
-    dispatch(logout());
+    dispatch(eraseUserData());
   };
 
   return (
