@@ -1,4 +1,12 @@
 
+Version 0.0.25
+    - Product search added.
+
+Version 0.0.24
+    - Docker file added.
+    - Added localstorage persistant data store. 
+    - Implemented logic to load data from localstorage to redux
+
 Version 0.0.23
     - Navbar category rendering and naviation completely implemented. 
 

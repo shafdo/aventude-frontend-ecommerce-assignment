@@ -34,7 +34,14 @@ export const SearchProductNameTemplate = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res: any = await SearchProductApi(productName);
+      // console.log(res.data);
+      // const res: any = await SearchProductApi(productName);
+
+      const res: any = await SearchProductApi(productName).catch((error) => {
+        return error.response;
+      });
+
+      if (res.status !== 200) return [];
       return res.data;
     };
 

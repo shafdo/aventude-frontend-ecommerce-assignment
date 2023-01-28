@@ -8,16 +8,12 @@ import ArrowBack from './arrow-left.svg';
 import { Form } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { LoginApi } from '../../../api/user.api';
-import Swal from 'sweetalert2';
-import withReactContent from 'sweetalert2-react-content';
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import { showBasicSuccessAlert, showBasicErrorAlert } from '../../../utils/swalAlerts';
 import './styles.scss';
 import { useDispatch } from 'react-redux';
-import { login } from '../../../store';
-
-const MySwal = withReactContent(Swal);
+import { saveUserData } from '../../../store';
 
 const LoginTemplate = () => {
   let navigate = useNavigate();
@@ -39,9 +35,20 @@ const LoginTemplate = () => {
 
     if (res.status === 200) {
       return await showBasicSuccessAlert({ title: 'Logged In Successfully', msg: res.data.msg }).then(() => {
-        dispatch(login({ email }));
+        // Store in Redux store
+        let settings = { email, isLoggedin: true };
+        dispatch(saveUserData(settings));
+
+        // Store in localstorage
+        let savedSettings: object = JSON.parse(localStorage.getItem('settings') || '{}');
+        settings = { ...savedSettings, ...settings };
+        localStorage.setItem('settings', JSON.stringify(settings));
+
+        // Set cookie
         Cookies.set('auth', res.data.token);
-        return navigate('/login');
+
+        // Redirect to home
+        return navigate('/');
       });
     }
     return await showBasicErrorAlert({ title: 'Oops.', msg: res.data });
