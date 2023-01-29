@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { DefaultButtonWithIcon, SubmitButton } from '../../atoms/Button';
@@ -31,7 +31,9 @@ const LoginTemplate = () => {
 
     if (!email || !password) return await showBasicErrorAlert({ title: 'Error', msg: 'Please fill in all the inputs.' });
 
-    const res: any = await LoginApi(email, password);
+    const res: any = await LoginApi(email, password).catch((error) => {
+      return error.response;
+    });
 
     if (res.status === 200) {
       return await showBasicSuccessAlert({ title: 'Logged In Successfully', msg: res.data.msg }).then(() => {
@@ -41,6 +43,8 @@ const LoginTemplate = () => {
 
         // Store in localstorage
         let savedSettings: object = JSON.parse(localStorage.getItem('settings') || '{}');
+        console.log(savedSettings);
+
         settings = { ...savedSettings, ...settings };
         localStorage.setItem('settings', JSON.stringify(settings));
 

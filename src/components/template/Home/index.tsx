@@ -15,8 +15,6 @@ const HomeTemplate = () => {
     fetchData().then((prods) => setProducts(prods));
   }, []);
 
-  console.log(products);
-
   return <ProductsContainer title="Product Catalog" itterList={products}></ProductsContainer>;
 };
 

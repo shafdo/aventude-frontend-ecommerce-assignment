@@ -18,11 +18,11 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />}></Route>
             <Route path="/product/:id" element={<ProductPage />}></Route>
-            <Route path="/search/category/:id" element={<SearchCategoryTemplate />}></Route>
+            <Route path="/search/category/:catId" element={<SearchCategoryTemplate />}></Route>
             <Route path="/search/product/:productName" element={<SearchProductNameTemplate />}></Route>
             <Route path="/register" element={<RegisterPage />}></Route>
             <Route path="/login" element={<LoginPage />}></Route>
-            <Route path="/checkout" element={<CheckoutPage />}></Route>
+            <Route path="/checkout/:prodId" element={<CheckoutPage />}></Route>
             <Route path="*" element={<Error404Page />}></Route>
           </Routes>
         </Router>

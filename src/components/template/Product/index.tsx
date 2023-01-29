@@ -8,6 +8,7 @@ import { useParams } from 'react-router';
 import { useEffect, useState } from 'react';
 import './styles.scss';
 import { GetProductApi } from '../../../api/product.api';
+import { Link } from 'react-router-dom';
 
 const ProductTemplate = () => {
   const { id }: any = useParams<string>();
@@ -16,8 +17,6 @@ const ProductTemplate = () => {
   useEffect(() => {
     const fetchData = async () => {
       const res: any = await GetProductApi(id);
-      console.log(res.data);
-
       return res.data;
     };
 
@@ -51,9 +50,11 @@ const ProductTemplate = () => {
             </div>
 
             <div className="d-block my-5">
-              <DefaultButton size="lg" className="primary-btn w-50 d-block mx-auto">
-                Buy Now
-              </DefaultButton>
+              <Link to={`/checkout/${product.productId}`}>
+                <DefaultButton size="lg" className="primary-btn w-50 d-block mx-auto">
+                  Buy Now
+                </DefaultButton>
+              </Link>
             </div>
           </Col>
         </Row>

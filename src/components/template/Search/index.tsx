@@ -5,7 +5,7 @@ import ProductsContainer from '../../organisms/Products';
 import './styles.scss';
 
 export const SearchCategoryTemplate = () => {
-  const { id }: any = useParams<string>();
+  const { catId }: any = useParams<string>();
   const [searchParams, setSearchParams] = useSearchParams();
   const [categories, setCategories] = useState([]);
   let navigate = useNavigate();
@@ -18,7 +18,7 @@ export const SearchCategoryTemplate = () => {
     if (catName === undefined) return navigate('/');
 
     const fetchData = async () => {
-      const res: any = await SearchCategoryApi(id);
+      const res: any = await SearchCategoryApi(catId);
       return res.data;
     };
 

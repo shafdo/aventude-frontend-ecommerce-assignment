@@ -26,7 +26,9 @@ const RegisterTemplate = () => {
 
     if (!email || !password || !cpassword) return await showBasicErrorAlert({ title: 'Error', msg: 'Please fill in all the inputs.' });
 
-    const res: any = await RegisterApi(email, password, cpassword);
+    if (password !== cpassword) return await showBasicErrorAlert({ title: 'Error', msg: 'Password did not match confirm password.' });
+
+    const res: any = await RegisterApi(email, password);
 
     if (res.status === 200) return await showBasicSuccessAlert({ title: 'Success', msg: res.data }).then(() => navigate('/login'));
     return await showBasicErrorAlert({ title: 'Error', msg: res.data });

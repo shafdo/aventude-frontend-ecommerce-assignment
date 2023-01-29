@@ -1,20 +1,15 @@
-import { FormEventHandler, useEffect, useState } from 'react';
-import { FormControl, InputGroup } from 'react-bootstrap';
-import { useDispatch } from 'react-redux';
-import { GetCategoriesApi } from '../../../api/category.api';
-import { saveUserData } from '../../../store';
+import { useEffect, useState } from 'react';
+import { InputGroup } from 'react-bootstrap';
 import Icon from '../../atoms/Icon';
-import { Input } from '../../atoms/Input';
 import StoreLogo from '../../atoms/Logo';
 import Navtabs from '../../molecules/Navtabs';
 import searchIcon from './search.svg';
 import _ from 'lodash';
 import './styles.scss';
-import { SearchProductApi } from '../../../api/search.api';
 import { useNavigate } from 'react-router-dom';
+import { GetCategoriesApi } from '../../../api/category.api';
 
 const Navbar = () => {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [categories, setCategories] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
@@ -33,12 +28,6 @@ const Navbar = () => {
     };
 
     fetchData().then((cats) => setCategories(cats));
-
-    // Set redux state variables from localstorage
-    const savedSettings = JSON.parse(localStorage.getItem('settings') || '{}');
-    if (_.isEmpty(savedSettings)) return;
-
-    dispatch(saveUserData(savedSettings));
   }, []);
 
   const search = async (e: any) => {

@@ -1,4 +1,9 @@
 
+Version 0.0.26
+    - Checkout integrated with backend.
+    - Order placing implemented. But there is a cookie not sending issue to be fixed.
+    - Updates on localstorage persistant data store.
+
 Version 0.0.25
     - Product search added.
 

@@ -5,13 +5,13 @@ import { eraseUserData } from '../../../store';
 import { Dropdown } from 'react-bootstrap';
 import { useEffect, useState } from 'react';
 import Cookies from 'js-cookie';
+import _ from 'lodash';
 
 interface Props {
   categoryList: any;
 }
 
 const Navtabs = (props: Props) => {
-  const email = useSelector((state: any) => state.user.value.email);
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
 
   const categoryList = props.categoryList;
@@ -26,6 +26,14 @@ const Navtabs = (props: Props) => {
   const logoutSession = () => {
     Cookies.remove('auth');
     dispatch(eraseUserData());
+
+    // Update localstorage
+    const savedSettings = JSON.parse(localStorage.getItem('settings') || '{}');
+    if (!_.isEmpty) {
+      savedSettings.isLoggedin = false;
+      savedSettings.email = '';
+    }
+    localStorage.setItem('settings', JSON.stringify(savedSettings));
   };
 
   return (

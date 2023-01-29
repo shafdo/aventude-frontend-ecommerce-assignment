@@ -18,11 +18,10 @@ export const LoginApi = (email: userType, password: userType) => {
   return response;
 };
 
-export const RegisterApi = (email: userType, password: userType, confirmPassword: userType) => {
+export const RegisterApi = (email: userType, password: userType) => {
   const postData = {
     email,
-    password,
-    confirmPassword
+    password
   };
 
   const response = Axios.post(`${process.env.REACT_APP_API_ENDPOINT}/user/register`, postData, { withCredentials: true });
