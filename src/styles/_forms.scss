@@ -12,6 +12,10 @@
   }
 }
 
+input[type='text']:disabled {
+  cursor: not-allowed;
+}
+
 .no-left-border {
   border-left: none;
 }

@@ -12,16 +12,12 @@ interface Props {
 }
 
 const Navtabs = (props: Props) => {
-  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(useSelector((state: any) => state.user.value.isLoggedin));
 
   const categoryList = props.categoryList;
   const categoryCount = props.categoryList.length;
 
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (Cookies.get('auth') !== undefined) setIsUserLoggedIn(true);
-  });
 
   const logoutSession = () => {
     Cookies.remove('auth');
@@ -29,7 +25,7 @@ const Navtabs = (props: Props) => {
 
     // Update localstorage
     const savedSettings = JSON.parse(localStorage.getItem('settings') || '{}');
-    if (!_.isEmpty) {
+    if (!_.isEmpty(savedSettings)) {
       savedSettings.isLoggedin = false;
       savedSettings.email = '';
     }
