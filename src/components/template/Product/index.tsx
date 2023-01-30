@@ -39,7 +39,7 @@ const ProductTemplate = () => {
             </div>
 
             <div className="d-flex justify-content-between align-items-center">
-              <Paragraph className="fs-3 fst-italic">$100</Paragraph>
+              <Paragraph className="fs-3 fst-italic">{'$ ' + product.productPrice}</Paragraph>
               <DefaultButton size="sm" className="fs-6 primary-btn fst-italic pe-none">
                 {product.productStock} In Stock
               </DefaultButton>

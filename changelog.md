@@ -1,4 +1,7 @@
 
+Version 0.0.29
+    - Profile page implemented and integrated with backend.
+
 Version 0.0.28
     - [Fixed] Axios cookie sending needs to be resolved.
 

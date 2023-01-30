@@ -12,3 +12,15 @@ export const CreateOrderApi = async (productId: string, orderQty: number) => {
 
   return response;
 };
+
+export const GetOrderApi = async (orderId: string) => {
+  const response = Axios.get(`${process.env.REACT_APP_API_ENDPOINT}/order/${orderId}`);
+
+  return response;
+};
+
+export const GetUserOrdersApi = async () => {
+  const response = Axios.get(`${process.env.REACT_APP_API_ENDPOINT}/order`);
+
+  return response;
+};
