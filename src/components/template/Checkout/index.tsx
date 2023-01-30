@@ -64,7 +64,7 @@ const CheckoutTemplate = () => {
 
     if (res.status !== 200) return showBasicErrorAlert({ title: 'Error', msg: res.data });
 
-    return showBasicSuccessAlert({ title: 'Order Completed', msg: res.data.msg });
+    return showBasicSuccessAlert({ title: 'Order Completed', msg: res.data });
   };
 
   return (

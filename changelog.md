@@ -1,4 +1,7 @@
 
+Version 0.0.28
+    - [Fixed] Axios cookie sending needs to be resolved.
+
 Version 0.0.27
     - Axios cookie sending needs to be resolved.
 
