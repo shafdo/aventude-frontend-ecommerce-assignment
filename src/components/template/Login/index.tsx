@@ -43,13 +43,12 @@ const LoginTemplate = () => {
 
         // Store in localstorage
         let savedSettings: object = JSON.parse(localStorage.getItem('settings') || '{}');
-        console.log(savedSettings);
 
         settings = { ...savedSettings, ...settings };
         localStorage.setItem('settings', JSON.stringify(settings));
 
         // Set cookie
-        Cookies.set('auth', res.data.token);
+        // Cookies.set('auth', res.data.token);
 
         // Redirect to home
         return navigate('/');

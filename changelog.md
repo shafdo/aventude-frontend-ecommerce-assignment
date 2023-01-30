@@ -1,4 +1,7 @@
 
+Version 0.0.27
+    - Axios cookie sending needs to be resolved.
+
 Version 0.0.26
     - Checkout integrated with backend.
     - Order placing implemented. But there is a cookie not sending issue to be fixed.

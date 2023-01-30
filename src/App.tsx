@@ -9,6 +9,7 @@ import { store } from './store';
 import './styles/index.scss';
 import ProductPage from './components/pages/Product';
 import { SearchCategoryTemplate, SearchProductNameTemplate } from './components/template/Search';
+import ProfilePage from './components/pages/Profile';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <Route path="/search/product/:productName" element={<SearchProductNameTemplate />}></Route>
             <Route path="/register" element={<RegisterPage />}></Route>
             <Route path="/login" element={<LoginPage />}></Route>
+            <Route path="/profile" element={<ProfilePage />}></Route>
             <Route path="/checkout/:prodId" element={<CheckoutPage />}></Route>
             <Route path="*" element={<Error404Page />}></Route>
           </Routes>

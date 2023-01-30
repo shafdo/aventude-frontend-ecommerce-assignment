@@ -1,6 +1,6 @@
 import Axios from 'axios';
 
-Axios.defaults.withCredentials = true;
+// Axios.defaults.withCredentials = true;
 
 interface userType {
   email: string;
@@ -14,7 +14,7 @@ export const LoginApi = (email: userType, password: userType) => {
     password
   };
 
-  const response = Axios.post(`${process.env.REACT_APP_API_ENDPOINT}/user/login`, postData, { withCredentials: true });
+  const response = Axios.post(`${process.env.REACT_APP_API_ENDPOINT}/user/login`, postData);
   return response;
 };
 
@@ -25,5 +25,10 @@ export const RegisterApi = (email: userType, password: userType) => {
   };
 
   const response = Axios.post(`${process.env.REACT_APP_API_ENDPOINT}/user/register`, postData, { withCredentials: true });
+  return response;
+};
+
+export const UserDataApi = () => {
+  const response = Axios.get(`${process.env.REACT_APP_API_ENDPOINT}/user`, { withCredentials: true });
   return response;
 };
