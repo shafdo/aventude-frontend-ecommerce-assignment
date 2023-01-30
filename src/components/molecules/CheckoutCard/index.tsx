@@ -2,7 +2,12 @@ import Icon from '../../atoms/Icon';
 import Paragraph from '../../atoms/Paragraph';
 import './styles.scss';
 
-const CheckoutCard = () => {
+interface Props {
+  title: string;
+  price: number;
+}
+
+const CheckoutCard = (props: Props) => {
   return (
     <>
       <div id="checkout-card" className="border-light mb-4">
@@ -11,8 +16,8 @@ const CheckoutCard = () => {
         </div>
 
         <div className="info">
-          <Paragraph className="fw-bold mb-0">Product Title</Paragraph>
-          <Paragraph>$100</Paragraph>
+          <Paragraph className="fw-bold mb-0">{props.title}</Paragraph>
+          <Paragraph>{'$ ' + props.price.toString(10)}</Paragraph>
         </div>
       </div>
     </>
